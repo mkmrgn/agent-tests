@@ -24,11 +24,11 @@ steps:
 
   - wait
 
-  - name: ":console: this is a test/and this is a script.sh"
-    command: "this is a test/and this is a script.sh"
+  - name: ":console: this-is-a-test/and-this-is-a-script.sh"
+    command: "this-is-a-test/and-this-is-a-script.sh"
 
-  - name: ":docker: this is a test/and this is a script.sh"
-    command: "sh this is a test/and this is a script.sh"
+  - name: ":docker: this-is-a-test/and-this-is-a-script.sh"
+    command: "sh this-is-a-test/and-this-is-a-script.sh"
     plugins:
       - docker-compose#v4.10.0:
           run: app
