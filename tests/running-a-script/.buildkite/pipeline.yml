@@ -2,70 +2,48 @@ env:
   THIS_GLOBAL_ENV: "true"
 
 steps:
-  -
-    name: ":console: this-script-doesn-have-chmod-x.sh"
+  - name: ":console: this-script-doesn-have-chmod-x.sh"
     command: "this-script-doesn-have-chmod-x.sh"
-    agents:
-      docker: true
 
-  -
-    name: ":docker: this-script-doesn-have-chmod-x.sh"
+  - name: ":docker: this-script-doesn-have-chmod-x.sh"
     command: "this-script-doesn-have-chmod-x.sh"
-    agents:
-      docker: true
     plugins:
-      - ssh://git@github.com/buildkite/plugins/docker-compose:
-          container: "app"
+      - docker-compose#v4.10.1:
+          run: app
 
-  - waiter
+  - wait
 
-  -
-    name: ":console: script.sh"
+  - name: ":console: script.sh"
     command: "script.sh"
-    agents:
-      docker: true
 
-  -
-    name: ":docker: script.sh"
+  - name: ":docker: script.sh"
     command: "script.sh"
-    agents:
-      docker: true
     plugins:
-      - ssh://git@github.com/buildkite/plugins/docker-compose:
-          container: "app"
+      - docker-compose#v4.10.1:
+          run: app
 
-  - waiter
+  - wait
 
-  -
-    name: ":console: this is a test/and this is a script.sh"
+  - name: ":console: this is a test/and this is a script.sh"
     command: "this is a test/and this is a script.sh"
 
-  -
-    name: ":docker: this is a test/and this is a script.sh"
+  - name: ":docker: this is a test/and this is a script.sh"
     command: "this is a test/and this is a script.sh"
-    agents:
-      docker: true
     plugins:
-      - ssh://git@github.com/buildkite/plugins/docker-compose:
-          container: "app"
+      - docker-compose#v4.10.1:
+          run: app
 
-  - waiter
+  - wait
 
-  -
-    name: ':console: ls -lsa; echo "hello"'
+  - name: ':console: ls -lsa; echo "hello"'
     command: |
       ls -lsa
       echo "hello"
-    agents:
-      docker: true
 
-  -
-    name: ':docker: ls -lsa; echo "hello"'
+  - name: ':docker: ls -lsa; echo "hello"'
     command: |
       ls -lsa
       echo "hello"
-    agents:
-      docker: true
     plugins:
-      - ssh://git@github.com/buildkite/plugins/docker-compose:
-          container: "app"
+      - docker-compose#v4.10.1:
+          run: app
