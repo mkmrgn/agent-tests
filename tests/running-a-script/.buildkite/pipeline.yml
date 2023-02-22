@@ -6,7 +6,7 @@ steps:
     command: "this-script-doesn-have-chmod-x.sh"
 
   - name: ":docker: this-script-doesn-have-chmod-x.sh"
-    command: "ls && pwd && this-script-doesn-have-chmod-x.sh"
+    command: "sh this-script-doesn-have-chmod-x.sh"
     plugins:
       - docker-compose#v4.10.0:
           run: app
@@ -28,7 +28,7 @@ steps:
     command: "this is a test/and this is a script.sh"
 
   - name: ":docker: this is a test/and this is a script.sh"
-    command: "this is a test/and this is a script.sh"
+    command: "sh this is a test/and this is a script.sh"
     plugins:
       - docker-compose#v4.10.0:
           run: app
